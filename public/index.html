@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <title>Chat app</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link rel="stylesheet"
+        href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="/"
+           class="brand-logo">Chat</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container user-data">
+    <div class="card">
+      <div class="card-content"
+           id="user-input">
+        <div class="input-field">
+          <input id="usernameInput"
+                 type="text"
+                 class="validate">
+          <label for="usernameInput">Username</label>
+        </div>
+        <div class="input-field">
+          <input id="roomInput"
+                 type="text"
+                 class="validate">
+          <label for="roomInput">Room</label>
+        </div>
+      </div>
+      <div class="card-action">
+        <button class="waves-effect waves-light btn"
+                id="joinBtn">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="container chat">
+    <div class="card">
+      <div class="card-content">
+        <div id="chatArea">
+          <span class="card-title"
+                id="roomTitle"
+                style="margin-bottom: 2rem">
+          </span>
+        </div>
+        <div id="usersInfoArea"
+             style="margin: 0 auto">
+        </div>
+      </div>
+      <div class="card-action input-area">
+        <div class="input-field">
+          <input id="msgInput"
+                 type="text">
+          <label for="msgInput">Say something ...</label>
+        </div>
+        <div class="input-field action">
+          <button class="waves-effect waves-light btn"
+                  id="sendBtn">Send</button>
+          <button class="waves-effect waves btn"
+                  id="captureBtn">Webcam</button>
+          <button class="waves-effect waves btn"
+                  style="display: none"
+                  id="takeScreenshotBtn">Take image</button>
+          <button class="waves-effect waves btn"
+                  id="sendImageBtn"
+                  style="display: none">Send image</button>
+        </div>
+
+      </div>
+      <div class="card image"
+           style="display: none">
+
+        <div class="card-content">
+          <div id="imageArea">
+            <video id="video"
+                   height="250px"
+                   autoplay></video>
+            <img id="preview"
+                 src="">
+            <canvas height="250"
+                    style="display: none"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
