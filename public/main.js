@@ -63,7 +63,6 @@ const captureVideo = () => {
   screenshotButton.style.display = 'initial';
   captureVideoButton.style.display = 'none';
   video.style.display = 'block';
-  // canvas.style.display = 'none';
 
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
@@ -80,7 +79,6 @@ const takeScreenshot = () => {
 
   canvas.getContext('2d').drawImage(video, 0, 0, vRatio, canvas.height);
   imgPreview.width = vRatio;
-  // imgPreview.height = video.videoHeight;
   imgPreview.src = canvas.toDataURL('image/webp');
   video.style.display = 'none';
   screenshotButton.style.display = 'none';

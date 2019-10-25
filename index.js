@@ -5,7 +5,6 @@ const socketIo = require('socket.io');
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
-
 const server = http.createServer(app);
 const io = socketIo(server);
 const users = new Map();
@@ -19,7 +18,6 @@ io.on('connection', client => {
   });
 
   client.on('chatMessage', data => {
-    console.log(data.message);
     const { room } = users.get(client.id);
     io.to(room).emit('chatMessage', data);
   });
