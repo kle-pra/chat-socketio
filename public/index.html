@@ -53,8 +53,7 @@
       <div class="card-content">
         <div id="chatArea">
           <span class="card-title"
-                id="roomTitle"
-                style="margin-bottom: 2rem">
+                id="roomTitle">
           </span>
         </div>
         <div id="usersInfoArea"
@@ -78,22 +77,22 @@
           <button class="waves-effect waves btn"
                   id="sendImageBtn"
                   style="display: none">Send image</button>
+          <button class="waves-effect waves btn"
+                  id="cancelImageBtn"
+                  style="display: none">Cancel</button>
         </div>
 
       </div>
-      <div class="card image"
-           style="display: none">
-
-        <div class="card-content">
-          <div id="imageArea">
-            <video id="video"
-                   height="250px"
-                   autoplay></video>
-            <img id="preview"
-                 src="">
-            <canvas height="250"
-                    style="display: none"></canvas>
-          </div>
+      <div class="image"
+           style="display: none; padding:0 0 3rem 3rem">
+        <div id="imageArea">
+          <video id="video"
+                 height="250px"
+                 autoplay></video>
+          <img id="preview"
+               src="">
+          <canvas height="250"
+                  style="display: none"></canvas>
         </div>
       </div>
     </div>
