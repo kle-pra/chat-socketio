@@ -23,7 +23,16 @@ let room = '';
 let socket = null;
 let streamRef;
 
-const join = () => {
+sendBtn.addEventListener('click', send);
+msgInput.addEventListener('keyup', send);
+joinBtn.addEventListener('click', join);
+captureVideoButton.addEventListener('click', captureVideo);
+sendImageBtn.addEventListener('click', sendImage);
+screenshotButton.addEventListener('click', takeScreenshot);
+cancelImageBtn.addEventListener('click', cancelImage);
+
+
+function join() {
   username = usernameInput.value || `anonymous${Math.ceil(Math.random() * 1000)}`;
   room = roomInput.value || 'general';
   chat.style.display = 'flex';
@@ -55,14 +64,14 @@ const join = () => {
   });
 };
 
-const send = event => {
+function send(event) {
   if ((event.keyCode == 13 || !event.keyCode) && msgInput.value) {
     socket.emit('chatMessage', { username, message: msgInput.value, room });
     msgInput.value = '';
   }
 };
 
-const sendImage = () => {
+function sendImage() {
   stopStream();
   imageArea.style.display = 'none';
   imgPreview.style.display = 'none';
@@ -75,7 +84,7 @@ const sendImage = () => {
   msgInput.parentElement.style.display = 'initial';
 };
 
-const cancelImage = () => {
+function cancelImage() {
   stopStream();
   imageArea.style.display = 'none';
   imgPreview.style.display = 'none';
@@ -87,7 +96,7 @@ const cancelImage = () => {
   msgInput.parentElement.style.display = 'initial';
 };
 
-const captureVideo = () => {
+function captureVideo() {
   imageArea.style.display = 'initial';
   screenshotButton.style.display = 'initial';
   cancelImageBtn.style.display = 'initial';
@@ -105,7 +114,7 @@ const captureVideo = () => {
     .catch(console.log);
 };
 
-const takeScreenshot = () => {
+function takeScreenshot() {
   const vRatio = (canvas.height / video.videoHeight) * video.videoWidth;
   canvas.getContext('2d').drawImage(video, 0, 0, vRatio, canvas.height);
   imgPreview.width = vRatio;
@@ -116,13 +125,7 @@ const takeScreenshot = () => {
   imgPreview.style.display = 'initial';
 };
 
-sendBtn.addEventListener('click', send);
-msgInput.addEventListener('keyup', send);
-joinBtn.addEventListener('click', join);
-captureVideoButton.addEventListener('click', captureVideo);
-sendImageBtn.addEventListener('click', sendImage);
-screenshotButton.addEventListener('click', takeScreenshot);
-cancelImageBtn.addEventListener('click', cancelImage);
+
 
 function stopStream() {
   if (streamRef.stop) {

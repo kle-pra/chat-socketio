@@ -10,6 +10,9 @@
   <title>Chat app</title>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+
 
   <link rel="stylesheet"
         href="style.css">
@@ -68,16 +71,18 @@
         </div>
         <div class="input-field action">
           <button class="waves-effect waves-light btn"
+                  style="margin-left: 1rem"
                   id="sendBtn">Send</button>
-          <button class="waves-effect waves btn"
-                  id="captureBtn">Webcam</button>
+          <button class="btn-floating btn-large waves-effect waves-light  red accent-2"
+                  style="margin-left: 1rem"
+                  id="captureBtn"><i class="material-icons">camera_alt</i></button>
           <button class="waves-effect waves btn"
                   style="display: none"
                   id="takeScreenshotBtn">Take image</button>
-          <button class="waves-effect waves btn"
+          <button class="waves-effect waves-light btn"
                   id="sendImageBtn"
                   style="display: none">Send image</button>
-          <button class="waves-effect waves btn"
+          <button class="waves-effect waves-light red btn"
                   id="cancelImageBtn"
                   style="display: none">Cancel</button>
         </div>
@@ -87,12 +92,10 @@
            style="display: none; padding:0 0 3rem 3rem">
         <div id="imageArea">
           <video id="video"
-                 height="250px"
                  autoplay></video>
           <img id="preview"
                src="">
-          <canvas height="250"
-                  style="display: none"></canvas>
+          <canvas style="display: none"></canvas>
         </div>
       </div>
     </div>

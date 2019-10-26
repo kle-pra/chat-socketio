@@ -26,12 +26,8 @@
   display: flex;
 }
 
-/* .card .input-field {
-  width: 80%;
-} */
-
 .chat .action {
-  width:90%;
+  width:40%;
 }
 
 #chatArea {
